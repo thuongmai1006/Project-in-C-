@@ -1,4 +1,6 @@
 //Thuong Mai
+/*A Probabilistic Weather Model predicts the probabilities of the weather being nice, cloudy, and rainy using matrices and vectors calculations. 
+ The program is an example of the multiplication of 3x3 matrix and 3x1 matrix.*/
 #include<iostream>
 #include<cmath>
 #include<iomanip>
