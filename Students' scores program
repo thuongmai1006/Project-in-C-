@@ -1,0 +1,80 @@
+//Thuong Mai
+/* Write a grading program for a class with the following grading policies: 
+ a. There are two quizzes, each graded based on 10 points. 
+ b. There are one midterm exam and one 
+final exam, each graded based on 100 points. 
+c. The final exam counts for 50 percent of the grade, the 
+midterm counts for 25 percent, and the two quizzes together count for a total of 25 percent. (Do not 
+forget to normalize the quiz scores. They should be converted to a percent before they are averaged in.) 
+Any grade of 90 or more is an A, any grade of 80 or more (but less than 90) is a B, any grade of 70 or 
+more (but less than 80) is a C, any grade of 60 or more (but less than 70) is a D, and any grade below 60 
+is an F. 
+The program will read in the student’s scores and output the student’s record, which consists of two 
+quizzes and two exam scores as well as the student’s average numeric score for the entire course and 
+the final letter grade. Define and use a structure for the student record. If this is a class assignment, ask 
+your instructor if input/output should be done with the keyboard and screen or if it should be done with 
+files. If it is to be done with files, ask your instructor for instructions on file names.*/ 
+#include<iostream>
+#include<cmath>
+#include<iomanip>
+#include<fstream>
+#include<string>
+using namespace std;
+class point
+{
+	public:
+		double quiz1[5], quiz2[5], quizzes[5]; //25%
+		double midterm[5]; //25%
+		double final[5]; 
+		double score[5];  //50%
+};
+
+int main()
+{
+cout<<"\nEnter the score text file you want to check (  .txt): ";
+ifstream read;
+string file;
+cin>>file;
+read.open(file.c_str());
+point grade, percentage;
+cout<<setw(15)<<" Quiz 1"<<setw(15)<<" Quiz 2"<<setw(15)<<"Midterm"<<setw(15)<<"final"<<setw(20)<<"percentage%"<<setw(17)<<"Letter grade"<<endl ;
+for (int i=0;i<4;i++)
+{ 
+read>>grade.quiz1[i];
+read>>grade.quiz2[i];
+read>>grade.midterm[i];
+read>>grade.final[i];
+
+grade.quizzes[i]= grade.quiz1[i] +grade.quiz2[i];
+
+percentage.quizzes[i]=(grade.quizzes[i]/20)*0.25;
+percentage.midterm[i]=(grade.midterm[i]/100)*0.25;
+percentage.final[i]=(grade.final[i]/100)*0.5;
+
+percentage.score[i]=(percentage.quizzes[i]+percentage.midterm[i]+percentage.final[i])*100;
+cout<<setw(15)<<grade.quiz1[i]<<setw(15)<<grade.quiz2[i]<<setw(15)<<grade.midterm[i]<<setw(15)<<grade.final[i]<<setw(15)<<percentage.score[i]<<"%";
+if (percentage.score[i]>90) //which one is more optimal, switch or if else
+{ cout<<setw(15)<<" A"<<endl; }
+else if (percentage.score[i]<90 && percentage.score[i]>=80) 
+{ cout<<setw(15)<<"B"<<endl; }
+else if (percentage.score[i]<80 && percentage.score[i]>=70  ) 
+{ cout<<setw(15)<<"C"<<endl; }
+else if (percentage.score[i]<70 && percentage.score[i]>=60) 
+{ cout<<setw(15)<<" D"<<endl; }
+else if (percentage.score[i]<60) 
+{ cout<<setw(15)<<" F"<<endl; }
+
+}
+
+return 0;
+
+}
+
+
+
+
+
+
+
+
+
