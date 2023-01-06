@@ -1,0 +1,171 @@
+//Thuong Mai
+//Engineering 50_Fall2022
+/*Create a base (parent) class called Vehicle that has the manufacturer’s name (type 
+string), number of cylinders in the engine (type int), and owner (type Person, see the 
+class given below). Then create a class called Truck that is derived (inherited) from 
+Vehicle and has additional properties: the load capacity in tons (type double) and 
+towing capacity in pounds (type int). Be sure your classes have constructors, assessor, 
+and mutator member functions. Write a driver program (a main function) that tests all 
+of your member functions. */
+#include<iostream>
+#include<cmath>
+#include<iomanip>
+#include<string>
+using namespace std;
+
+class Vehicle
+{
+	public:
+	Vehicle(); //constructor 
+	void input1();
+	void output1();
+	string get_brand();
+	int get_no();
+	
+	protected:
+	string manufacture;
+	int no_cylinder;
+	class Person;
+};
+		
+class Person
+{
+	public:
+		Person(); //constructor
+		void pson();
+		string getName();
+		string getLast();
+	protected:
+		string name, lastname;
+};
+
+class Truck : public Vehicle , public Person
+{
+	public:
+		Truck(); //constructor
+		void input();
+		void output();
+		string get_truckName();
+		int get_cylinders();
+		string get_truckOwner();
+		double get_load();
+		double get_tow();
+	protected:
+		string truckName;
+		int cylinders;
+		string truckOwner;
+		double loading;
+		double towing;
+		
+};
+int main()
+{
+	Truck truck;
+	
+	truck.input1();
+	truck.pson();
+	truck.input();
+	cout<<"\n The input information of the user is: "<<endl;
+	truck.output();
+	
+
+return 0;
+}
+
+Vehicle::Vehicle()
+	{
+		manufacture='0';
+		no_cylinder=0;
+	}
+	
+Person::Person()
+	{
+		name='0';
+	}
+
+	
+void Vehicle::input1()
+{
+	cout<<"\n Please enter the manufacture name: ";
+	cin>>manufacture;
+	cout<<"\n Please enter the number of cylinders :";
+	cin>>no_cylinder;
+	//cout<<"The vehicle brand name is: "<<manufacture<<" and the number of cylinder: "<<no_cylinder<<endl;
+}
+
+void Person::pson()
+{
+	cout<<"\n Enter the owner's name of the vehicle";
+	cout<<"\n  First name: ";
+	cin>>name;
+	cout<<"  Lastname: ";
+	cin>>lastname;
+	
+}
+Truck::Truck()
+{
+	truckName=" ";
+	cylinders=0;
+	truckOwner=" ";
+	loading=0;
+	towing=0;
+}
+
+
+void Truck::input()
+{
+	cout<<"\n Enter the loading capacity of the vehicle: ";
+	cin>>loading;
+	cout<<"\n Enter the towing capacity of the vehicle: ";
+	cin>>towing;
+	truckName= manufacture;
+	cylinders=no_cylinder;
+	truckOwner= name +" "+ lastname;
+}
+void Truck::output()
+{
+	cout<<"\n Vehicle brand      : "<<truckName<<endl;
+	cout<<"\n # of cylinders     : "<<cylinders<<endl;
+	cout<<"\n Owner		    : "<<truckOwner<<endl;
+	cout<<"\n Loading capacity   : "<<loading<<" kg "<<endl;
+	cout<<"\n Towing capacity    : "<<towing<<" kg "<<endl;
+}
+string Vehicle::get_brand()
+{
+	return manufacture;
+}
+int Vehicle::get_no()
+{
+	return no_cylinder;
+}
+string Person::getName()
+{
+	return name;
+}
+string Person::getLast()
+{
+	return lastname;
+}
+string Truck::get_truckName()
+{
+	return truckName;
+}
+int Truck::get_cylinders()
+{
+	return cylinders;
+}
+string Truck::get_truckOwner()
+{
+	return truckOwner;
+}
+double Truck::get_load()
+{
+	return loading;
+}
+double Truck::get_tow()
+{ 
+return towing;
+}
+
+
+
