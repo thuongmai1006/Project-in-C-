@@ -1,0 +1,101 @@
+//Thuong Mai
+/*Write a C++ program to do the following:
+a. Open the file given which contains temperature readings in a nuclear reactor over one day. This file 
+contains three columns of data. The first column hours, the second column minutes, and the third 
+column temperature. 
+b. Read all the data and store them in three separate arrays. Use the vector method for this since this 
+method is ideally suited in situations when the number of data in a file is not known.
+c. Pass the temperature values into a function called Temperature and return the minimum and 
+maximum temperature values along with the time when they occurred (hour and minutes).
+d. Call a function called PRINT and print this information (max, min, hours, minutes).*/
+#include<iostream>
+#include<cmath>
+#include<iomanip>
+#include<fstream>
+#include<sstream>
+#include<cstdlib>
+#include<vector>
+using namespace std;
+int main()
+{
+ifstream read;
+read.open("newdata.txt");
+
+	vector<int>hours; 
+	vector<int>minutes;
+	vector<double>temp;
+	vector<int> ans;
+
+	for (int i=0; i<3;i++)
+	{
+		for (int j=0;j<3;j++)
+		{
+			for (int k=0; k<3; k++)
+			{
+			hours.push_back(1);
+			read>>hours[i];
+			minutes.push_back(1);
+			read>>minutes[j];
+			temp.push_back(1);
+			read>>temp[k];
+			cout<<hours[i]<<setw(10)<<minutes[j]<<setw(10)<<temp[k]<<endl;
+			}
+		}
+	}
+
+ /*for (int i=0; i<3;i++)
+	{
+		for (int j=0;j<3;j++)
+		{
+			for (int k=0;k<3;k++)
+			{
+			cout<<temp[k]<<" ";
+	}}}*/
+	int max =INT_MIN;
+	int min = INT_MAX;
+	int h_max;  //variables to store hours and minutes
+	int m_max;
+	
+	int h_min;
+	int m_min;
+	
+	cout<<"Please"<<endl;
+	
+	
+	for(int i=0;i<temp.size();i++)
+	{
+		
+		cout<<temp[i]<<" ";
+		if(temp[i]>max)
+		{
+			max = temp[i];
+			h_max = hours[i];
+			m_max = minutes[i];
+		}
+		
+		if(temp[i]<min)
+		{
+			min = temp[i];
+			h_min = hours[i];
+			m_min = minutes[i];
+		}
+	}
+
+	//storing max values first
+	ans.push_back(max);
+	ans.push_back(h_max);
+	ans.push_back(m_max);
+	
+	//storing min values then
+	ans.push_back(min);
+	ans.push_back(h_min);
+	ans.push_back(m_min);
+	cout<<"The maximum temperature is : "<<max<<endl;
+	//cout<<"Time at which it occurs: "<<store[1]<<":"<<store[2]<<endl;
+	
+	cout<<"The minimum temperature is : "<<min<<endl;
+	//cout<<"Time at which it occurs: "<<store[4]<<":"<<store[5]<<endl;
+	
+	
+return 0;
+}
