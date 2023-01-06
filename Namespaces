@@ -1,0 +1,29 @@
+//Thuong Mai
+#include <iostream>
+#include <cmath>
+#include <iomanip>
+using namespace std;
+
+namespace mylib {
+
+const double c= 299792458; //unit m/s
+const double g = 9.81; //unit m/s^2
+const double d= 384472282; //unit in m, 238900 miles
+
+};
+
+int main()
+{
+ double time;
+ time= mylib::d/ mylib::c; 
+ cout<<"\nThe speed of light is c="<<mylib::c<<" m/s "<<endl;
+ cout<<"\nThe gravitational is g= "<<mylib::g<<" m/s^2"<<endl;
+ cout<<"\nThe distance from the Earth to the Moon is d= "<<mylib::d<<" m "<<endl;
+ cout<<"\n The time it takes for light to travel to the moon is t = "<<time<<" second "<<endl;
+double m, mass, P;
+m=200; //lbs
+mass= 0.453592*m;
+P= 90.7185*mylib::g;
+cout<<"\nThe weight of an object that has a mass of 200 pounds is P = "<<P<<" Newton "<<endl;
+return 0;
+}
