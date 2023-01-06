@@ -1,0 +1,79 @@
+//Thuong Mai
+//Engineering 50_Fall2022
+/* A program to create an inventory of a part for an engine. 
+ a. Name of part 
+ b. date designed (release date) 
+ c. Length, width, thickness, radius 
+ d. weight 
+ e. Material (Iron, steel, etc. etc. 
+ f. Cost 
+This program includes a class that will create objects with the above properties. The program will return the object with many properties*/
+#include<iostream>
+#include<cmath>
+#include<iomanip>
+#include<string>
+#include<fstream>
+using namespace std;
+void intput();
+class inventory
+{
+	public:
+		void input ();
+		void output();
+		string name;
+		string date;
+		double length, width, thickness, radius;
+		double weight;
+		string material;
+		double cost;
+};
+
+int main()
+{
+	inventory object1, object2, object3;
+	object1.input();
+	object2.input();
+	object3.input();
+	cout<<setw(10)<<"Name"<<setw(17)<<"Date"<<setw(20)<<"Length(cm)"<<setw(20)<<"Width(cm)"<<setw(20)<<"thickness(cm)"
+		<<setw(20)<<"radius(cm)"<<setw(20)<<"weight(g)"<<setw(20)<<"material"<<setw(20)<<"cost($)"<<endl;
+	object1.output();
+	object2.output();
+	object3.output();
+	
+return 0;
+}
+void inventory::input ()
+{
+inventory object1, object2, object3;
+	cout<<"\n Enter the name of the object : ";
+	cin>>name;
+	cout<<"\n Enter the date of release: ";
+	cin>>date;
+	cout<<"\n Enter the length: ";
+	cin>>length;
+	cout<<"\n Enter the width: ";
+	cin>>width;
+	cout<<"\n Enter the thickness: ";
+	cin>>thickness;
+	cout<<"\n Enter the radius: ";
+	cin>>radius;
+	cout<<"\n Enter the weight: ";
+	cin>>weight;
+	cout<<"\n Enter the material: ";
+	cin>>material;
+	cout<<"\n Enter the cost: ";
+	cin>>cost;
+}
+void inventory::output()
+{
+	
+	cout<<setw(10)<<name<<setw(20)<<date<<setw(13)<<length
+		<<setw(20)<<width<<setw(20)<<thickness<<setw(20)<<radius
+		<<setw(20)<<weight<<setw(20)<<material<<setw(20)<<cost<<endl;	
+}
+	
+	
+	
+	
+	
+	
