@@ -1,5 +1,4 @@
 //Thuong Mai
-//Engineering 50_Fall2022
 #include<iostream>
 #include<cmath>
 #include<iomanip>
