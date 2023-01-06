@@ -1,0 +1,39 @@
+//Thuong Mai
+/*Write a C++ program to numerically integrate the following function using the trapezoidal method. 
+f(x) = 4 x^2 - cos(x)           0<=  x  =< 10 */
+
+#include<iostream>
+#include<cmath>
+#include<iomanip>
+using namespace std;
+
+double function( double x)
+{
+double f;
+f=4*pow(x,2)-cos(x);
+return f;
+}
+
+int main()
+{
+
+double a=0,b=10,dx=0.001, areaTZ=0, sum=0,f;
+int n=10/dx; // the number of the rectangle, the smaller the increment, which is delta x, the closer the accuracy gets
+double x[n+1], y[n+1];
+for (int i=0;i<=n;i++)
+{
+x[i]=a+i*dx;
+y[i]=function(x[i]);
+}
+for (int i=1;i<n;i++)
+{
+areaTZ= areaTZ+ (dx/2)*(y[i]+y[i+1]);
+}
+double upper,lower,integral;
+upper=(((4*pow(10,3)/3))-sin(10));
+integral=upper-lower;
+
+cout<<"\n The numerical integration of the function is "<<areaTZ<<endl;
+cout<<"\n The analytical integration of the function is "<<integral<<endl;
+return 0;
+}
